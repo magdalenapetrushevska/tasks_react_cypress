@@ -2,7 +2,7 @@
 
 A simple task manager app built with **React** to add and track daily tasks. The main focus of this project is to demonstrate **Cypress end-to-end testing** in a practical example.  
 
-![Alt text](public\tasks.png)
+![Alt text](https://github.com/magdalenapetrushevska/tasks_react_cypress/blob/master/public/tasks.png)
 ---
 
 ## 🚀 Features  
