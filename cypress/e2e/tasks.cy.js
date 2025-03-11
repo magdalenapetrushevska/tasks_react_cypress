@@ -107,7 +107,8 @@ describe("tasks interactions", () => {
     cy.get('[data-cy="category-input"]').select("low");
     cy.get('[data-cy="submit"]').click();
 
-    cy.get('[data-cy="task"]').should("have.length",2);
+    cy.get('[data-cy="filter"]').select("all");
+    cy.get('[data-cy="task-list"]').get('li').should("have.length",2);
     
     cy.get('[data-cy="filter"]').select("low");
     cy.get('[data-cy="task"]').should("have.length",1);

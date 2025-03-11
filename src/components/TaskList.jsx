@@ -7,7 +7,7 @@ function TaskList({ tasks }) {
   }
 
   return (
-    <ul className="task-list">
+    <ul className="task-list" data-cy="task-list">
       {tasks.map((task) => (
         <Task key={task.id} {...task} />
       ))}
