@@ -4,7 +4,7 @@ function Filter({ onFilterChange }) {
   }
 
   return (
-    <select id="filter" onChange={filterChangeHandler}>
+    <select id="filter" onChange={filterChangeHandler} data-cy="filter">
       <option value="all">All</option>
       <option value="urgent">🚨 Urgent</option>
       <option value="important">🔴 Important</option>

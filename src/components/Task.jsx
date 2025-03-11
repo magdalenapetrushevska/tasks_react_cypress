@@ -9,7 +9,7 @@ const CATEGORY_ICONS = {
 
 function Task({ category, title, summary }) {
   return (
-    <li className='task'>
+    <li className='task' data-cy="task">
       <span className='task-category'>{CATEGORY_ICONS[category]}</span>
       <div>
         <h2>{title}</h2>

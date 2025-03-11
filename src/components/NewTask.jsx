@@ -36,15 +36,15 @@ function NewTask({ onAddTask, onCancel }) {
     <form id="new-task-form" onSubmit={submitHandler}>
       <p>
         <label htmlFor="title">Title</label>
-        <input type="text" id="title" ref={titleRef} />
+        <input type="text" id="title" ref={titleRef} data-cy="title-input"/>
       </p>
       <p>
         <label htmlFor="summary">Summary</label>
-        <textarea id="summary" rows="5" ref={summaryRef} />
+        <textarea id="summary" rows="5" ref={summaryRef} data-cy="summary-input"/>
       </p>
       <p>
         <label htmlFor="category">Category</label>
-        <select id="category" ref={categoryRef} defaultValue="moderate">
+        <select id="category" ref={categoryRef} defaultValue="moderate" data-cy="category-input">
           <option value="urgent">🚨 Urgent</option>
           <option value="important">🔴 Important</option>
           <option value="moderate">🔵 Moderate</option>
@@ -52,13 +52,13 @@ function NewTask({ onAddTask, onCancel }) {
         </select>
       </p>
       {formInvalid && (
-        <p className="error-message">
+        <p className="error-message" data-cy="error-message">
           Please provide values for task title, summary and category!
         </p>
       )}
       <p className="actions">
-        <button type="button" onClick={onCancel}>Cancel</button>
-        <button type="submit">Add Task</button>
+        <button type="button" onClick={onCancel} data-cy="cancel">Cancel</button>
+        <button type="submit" data-cy="submit">Add Task</button>
       </p>
     </form>
   );
