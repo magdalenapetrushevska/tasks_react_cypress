@@ -4,6 +4,10 @@ A simple task manager app built with **React** to add and track daily tasks. The
 
 ## ![Alt text](https://github.com/magdalenapetrushevska/tasks_react_cypress/blob/master/public/tasks.png)
 
+## 🚀 Live Demo
+
+[Click here to access the deployed app](https://today-tasks-manager.netlify.app/)
+
 ## 🚀 Features
 
 ✔️ Add tasks to your daily list  
