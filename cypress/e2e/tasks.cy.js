@@ -8,15 +8,15 @@ describe("tasks page", () => {
   });
 
   it("should display the main image", () => {
-    cy.get(".main-header").find("img");
+    cy.get(".main-header").find("img").should("be.visible");
   });
 
   it("should display information for empty task list", () => {
-    cy.get("main").find('[data-cy="no-tasks"]');
+    cy.get("main").find('[data-cy="no-tasks"]').should("be.visible");
   });
 
   it("should display filter options", () => {
-    cy.get("#filter").find("option").should("have.length", 5);
+    cy.get('[data-cy="filter"]').find("option").should("have.length", 5);
   });
 
   it("should display button for adding task", () => {
@@ -26,9 +26,9 @@ describe("tasks page", () => {
 
 describe("add task modal", () => {
   it("should contains inputs fields in the modal", () => {
-    cy.get('[data-cy="start-add-task-button"]').click();
-    cy.get('[data-cy="title-input"]');
-    cy.get('[data-cy="summary-input"]');
+    cy.openAddNewTaskForm(); 
+    cy.get('[data-cy="title-input"]').should("be.visible");
+    cy.get('[data-cy="summary-input"]').should("be.visible");
     cy.get('[data-cy="category-input"]')
       .find("option")
       .should("have.length", 4);
@@ -38,15 +38,16 @@ describe("add task modal", () => {
 });
 
 describe("tasks interactions", () => {
+  beforeEach(() => {
+    cy.openAddNewTaskForm(); 
+  });
   it("should open and close the new task modal", () => {
-    cy.get('[data-cy="start-add-task-button"]').click();
     cy.get('[data-cy="modal"]').should("exist");
     cy.get('[data-cy="cancel"]').click();
     cy.get('[data-cy="modal"]').should("not.exist");
   });
 
   it("should add new task", () => {
-    cy.get('[data-cy="start-add-task-button"]').click();
     cy.get('[data-cy="title-input"]').type("Task 1");
     cy.get('[data-cy="summary-input"]').type("Description for task 1");
     cy.get('[data-cy="submit"]').click();
@@ -56,7 +57,6 @@ describe("tasks interactions", () => {
   });
 
   it("should add multiple tasks", () => {
-    cy.get('[data-cy="start-add-task-button"]').click();
     cy.get('[data-cy="title-input"]').type("Task 1");
     cy.get('[data-cy="summary-input"]').type("Description for task 1");
     cy.get('[data-cy="submit"]').click();
@@ -82,13 +82,11 @@ describe("tasks interactions", () => {
   });
 
   it("should validate user input", () => {
-    cy.get('[data-cy="start-add-task-button"]').click();
     cy.get('[data-cy="submit"]').click();
     cy.get('[data-cy="error-message"]').contains("Please provide values");
   });
 
   it("should filter tasks", () => {
-    cy.get('[data-cy="start-add-task-button"]').click();
     cy.get('[data-cy="title-input"]').type("Task 1");
     cy.get('[data-cy="summary-input"]').type("Description for task 1");
     cy.get('[data-cy="category-input"]').select("urgent");
