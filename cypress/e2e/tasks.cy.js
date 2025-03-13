@@ -1,8 +1,8 @@
-describe("tasks page", () => {
-  beforeEach(() => {
-    cy.visit("/");
-  });
+beforeEach(() => {
+  cy.visit("/");
+});
 
+describe("tasks page", () => {
   it("should display the title", () => {
     cy.get(".main-header").find("h1").contains("Today's Task");
   });
